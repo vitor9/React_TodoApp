@@ -1,0 +1,14 @@
+const mongose = require('mongoose')
+// Serve para fazer o mapeamento de nossos objetos em js/docs que vao para o mongo
+// Tambem serve para abrir uma conexao com o mongo e mandar os comandos CRUD para ele.
+// Mongo eh um banco sem schema, mais facil de criar objetos e colecoes
+// ele é mais simples que um bd relacional e possui estrutura menos complexa.
+
+mongoose.Promise = global.Promise
+// Garantindo que a API de promise do mongoose vai usar a API de promise do node e evitar msg advertencia
+
+O servidor vai dar erro se você não startou o mongodb
+O comando no cli para startar o mongo é:
+mongod
+
+Nas nossas aulas, sempre devemos startar o mongo primeiro antes de rodar o nosso servidor
