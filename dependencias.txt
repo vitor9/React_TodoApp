@@ -1,0 +1,6 @@
+body-parser@1.15.2 
+express@4.14.0 - framework web, para serviços web-service
+mongoose@4.7.0 - conexao com o mongodb, ira realizar mapeamento objeto documento.
+node-restful@0.2.5 - biblioteca que ira facilitar nossa utilizacao dos web-services.
+pm2@2.1.5 - launucher, dispara nossa aplicacao, monitora nossa aplicacao.
+nodemon@1.11.0 - usado para desenvolvimento
