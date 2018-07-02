@@ -1,4 +1,6 @@
-const port = 3003;
+// Caso o erro Error: listen EADDRINUSE :: 3003 aconteca
+// mudar o numero de port
+const port = 4000;
 
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -7,13 +9,10 @@ const allowCors = require('./cors')
 
 server.use(bodyParser.urlencoded( { extended: true } ))
 server.use(bodyParser.json())
-// Ira permitir que a req pra um determinado acesso de nossa aplicacao
-// possa vir de uma origem diferente
 server.use(allowCors)
 
 server.listen(port, function() {
     console.log(`BACKEND is running on port ${port}.`);
-    
 })
 
 module.exports = server
