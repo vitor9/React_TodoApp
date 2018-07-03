@@ -12,7 +12,7 @@ module.exports = {
         contentBase: './public',
     },
     resolve: {
-        extension: ['', '.js', '.jsx'],
+        extensions: ['', '.js', '.jsx'],
         alias: {
             modules: __dirname + '/node_modules'
         }
@@ -22,7 +22,7 @@ module.exports = {
     ],
     module: {
         loaders: [{
-            test: /.js[x]?&/,
+            test: /.js[x]?$/,
             loader: 'babel-loader',
             exclude: /node_modules/,
             query: {
