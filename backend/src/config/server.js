@@ -1,6 +1,6 @@
 // Caso o erro Error: listen EADDRINUSE :: 3003 aconteca
 // mudar o numero de port
-const port = 4000;
+const port = 3003;
 
 const bodyParser = require('body-parser');
 const express = require('express');

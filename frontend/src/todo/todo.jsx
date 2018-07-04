@@ -1,7 +1,12 @@
+// Bibliotecas de terceiros p/ desev
 import React, { Component } from 'react'
+import axios from 'axios'
+// Minha aplicacao
 import PageHeader from '../template/pageHeader'
 import TodoForm from '../todo/todoForm'
 import TodoList from '../todo/todoList'
+
+const URL = 'http://localhost:3003/api/todos';
 
 export default class Todo extends Component {
   constructor(props) {
@@ -12,12 +17,13 @@ export default class Todo extends Component {
   }
 
   handleChange(e) {
-    this.setState({...this.state, description: e.target.value })
+    this.setState({...this.state, description: e.target.value });
   }
 
   handleAdd() {
-    console.log(this.state.description);
-        
+    const description = this.state.description;
+    axios.post(URL, { description })
+      .then(resp => console.log('Funcionou!'))
   }
 
     render() {
