@@ -6,24 +6,27 @@ import TodoList from '../todo/todoList'
 export default class Todo extends Component {
   constructor(props) {
     super(props);
-    // A propriedade bind garante que um dado vai ser
-    // aquilo que queremos
+    this.state = { description: '', list: [] }
+    this.handleChange = this.handleChange.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
   }
+
+  handleChange(e) {
+    this.setState({...this.state, description: e.target.value })
+  }
+
   handleAdd() {
-    console.log('Add');
-    // This muda o valor de acordo com quem chamou a funcao
-    // Na maioria das lingaugens um this esta associado
-    // em um lugar que ele foi escrito.
-    console.log(this);
-    
+    console.log(this.state.description);
+        
   }
 
     render() {
       return (
         <div>
           <PageHeader name='Tarefas' small='Cadastro'></PageHeader>
-          <TodoForm handleAdd={this.handleAdd}/>
+          <TodoForm description={this.state.description} 
+            handleChange={this.handleChange}
+            handleAdd={this.handleAdd}/>
           <TodoList />
         </div>
       )
