@@ -1,0 +1,12 @@
+S5 A56:
+Se deletarmos a linha:
+this.setState({...this.state, description: e.target.value})
+
+Nao vamos mais poder fazer nenhuma mudança no campo alvo que estamos
+manipulando o estado. Isso é um componente controlável.
+
+Agora, se definissemos um valor ja para o campo, nao iamos conseguir
+modifica-lo também, porque o campo no jsx/js esta ja com um valor, e 
+como o jsx interpreta somente o que esta no codigo e nao na view/DOM
+como verdade absoluta, nao podemos mudar o valor pela view/DOM.
+Com esta situaçao, o componente se torna um componente nao controlavel.
