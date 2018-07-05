@@ -19,6 +19,8 @@ export default class Todo extends Component {
     this.handleMarkAsDone = this.handleMarkAsDone.bind(this);
     this.handleMarkAsPending = this.handleMarkAsPending.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleClear = this.handleClear.bind(this);
+
     this.refresh();
   }
 
@@ -26,7 +28,8 @@ export default class Todo extends Component {
     const search = description ? `&description__regex=/${description}/` : ''
     axios.get(`${URL}?sort=-createdAt${search}`)
       .then(resp => this.setState({
-        ...this.setState, description, list: resp.data})
+        ...this.setState, description, list: resp.data
+      })
       );
   }
 
@@ -35,7 +38,7 @@ export default class Todo extends Component {
   }
 
   handleChange(e) {
-    this.setState({...this.state, description: e.target.value });
+    this.setState({ ...this.state, description: e.target.value });
   }
 
   handleAdd() {
@@ -50,32 +53,37 @@ export default class Todo extends Component {
   }
 
   handleMarkAsDone(todo) {
-    axios.put(`${URL}/${todo._id}`, {...todo, done: true})
+    axios.put(`${URL}/${todo._id}`, { ...todo, done: true })
       .then(resp => this.refresh(this.state.description))
   }
 
   handleMarkAsPending(todo) {
-    axios.put(`${URL}/${todo._id}`, {...todo, done: false})
+    axios.put(`${URL}/${todo._id}`, { ...todo, done: false })
       .then(resp => this.refresh(this.state.description))
   }
 
-    render() {
-      return (
-        <div>
-          <PageHeader name='Tarefas' small='Cadastro'></PageHeader>
-          
-          <TodoForm 
-            description = {this.state.description} 
-            handleChange = {this.handleChange}
-            handleAdd = {this.handleAdd}
-            handleSearch = {this.handleSearch} />
+  handleClear() {
+    this.refresh();
+  }
 
-          <TodoList 
-          list={ this.state.list } 
-          handleRemove = {this.handleRemove}
-          handleMarkAsDone = {this.handleMarkAsDone}
-          handleMarkAsPending = {this.handleMarkAsPending} />
-        </div>
-      )
-    }
+  render() {
+    return (
+      <div>
+        <PageHeader name='Tarefas' small='Cadastro'></PageHeader>
+
+        <TodoForm
+          description={this.state.description}
+          handleChange={this.handleChange}
+          handleAdd={this.handleAdd}
+          handleSearch={this.handleSearch}
+          handleClear={this.handleClear} />
+
+        <TodoList
+          list={this.state.list}
+          handleRemove={this.handleRemove}
+          handleMarkAsPending={this.handleMarkAsPending} 
+          handleMarkAsDone={this.handleMarkAsDone} />
+      </div>
+    )
+  }
 }

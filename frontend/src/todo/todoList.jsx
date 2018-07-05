@@ -24,21 +24,21 @@ export default props => {
                             onClick={() => props.handleRemove(todo)}></IconButton>
                     </td>
                 </tr>
-                    ))
-                )
-            }
-        
-            return (
+            ))
+        )
+    }
+
+    return (
         <table className='table'>
-                        <thead>
-                            <tr>
-                                <th>Descrição</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {renderRows()}
-                        </tbody>
-                    </table>
-                    )
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th className='tableActions'>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {renderRows()}
+            </tbody>
+        </table>
+    )
 }
