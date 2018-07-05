@@ -1,0 +1,5 @@
+1 - Ao marcar uma tarefa como terminada, jogar ela para o ultimo ou primeiro lugar
+
+2 - Enquanto o usuario vai digitando no campo de pesquisa, já vem trazendo resultados
+
+3 - Exibir alguma mensagem no lugar da grid para resultados que não foram encontrados
