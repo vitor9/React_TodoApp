@@ -1,13 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import IconButton from '../template/iconButton'
 
-export default props => {
+const TodoList = props => {
 
     const renderRows = () => {
-        // Se a lista no props esta settada/existe
-        // eh guardado a lista na constante.
-        // Se nao tiver, colocamos um array vazio
-        // para garantirmos nao chamarmos um metodo
         const list = props.list || []
         return (
             list.map(todo => (
@@ -42,3 +39,6 @@ export default props => {
         </table>
     )
 }
+
+const mapStateToProps = state => ({list: state.todo.list})
+export default connect(mapStateToProps)(TodoList)
