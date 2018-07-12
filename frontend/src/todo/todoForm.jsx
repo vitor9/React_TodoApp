@@ -17,7 +17,6 @@ class TodoForm extends Component {
     }
 
     keyHandler(e) {
-        // Extrai de um objeto um conjunto de atributos
         const { add, search, description, clear } = this.props
         if (e.key === 'Enter') {
             e.shiftKey ? search() : add(description)
@@ -25,7 +24,6 @@ class TodoForm extends Component {
             clear()
         }
     }
-    //add e search sao actions creators, descricao eh um dado da store 
     render() {
         const { add, search, description } = this.props
         return (
